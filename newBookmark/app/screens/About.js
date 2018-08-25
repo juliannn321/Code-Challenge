@@ -18,7 +18,7 @@ class About extends Component {
                 if (newCheckmark) {
                     navigation.state.params.gatherListOfBookmarks(newBookmark);
                     navigation.popToTop();
-                } else if (!checkmark) {
+                } else if (!newCheckmark) {
                     navigation.pop();
                 }
             }}>
@@ -71,8 +71,13 @@ class About extends Component {
     render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <View style={{ flex: 1 }}></View>
-                <View style={{ flex: 1, alignItems: 'center', borderWidth: 1, borderRadius: 10 }}>
+                <View style={{ flex: 1 }}>
+                    <Image
+                        style={{ width: 400, height: 300 }}
+                        source={require('../../google.png')}
+                    />
+                </View>
+                <View style={{ flex: 1, padding: 15, backgroundColor: 'white', alignItems: 'center', borderWidth: 2, borderRadius: 20, borderColor: 'white' }}>
                     <Text style={{ fontSize: 15, fontWeight: 'bold', margin: 15 }}>{this.props.navigation.state.params.name}</Text>
                     <Text>{this.props.navigation.state.params.address}</Text>
                     <Button

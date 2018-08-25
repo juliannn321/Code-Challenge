@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, FlatList, Text, Image, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
-import List from '../components/list';
 import Button from '../components/Button';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -44,7 +43,7 @@ class BookMark extends Component {
                                     />
                                     <View style={{ flexDirection: 'column', justifyContent: 'center', margin: 10 }}>
                                         <Text>{item.name}</Text>
-                                        <Text>{item.address}</Text>
+                                        <Text style={{ flexWrap: 'wrap' }}>{item.address}</Text>
                                     </View>
                                 </View>
                             )
