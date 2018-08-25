@@ -35,9 +35,14 @@ class About extends Component {
             image: '',
             name: '',
             address: ''
-        }
+        },
+        url: ''
     }
-    componentDidMount = () => {
+    componentDidMount = async () => {
+        const api = 'AIzaSyA_whkX4QqyrYnTzcJlgWO26bgC_UZLBo0'
+        const photoRef = this.props.navigation.state.params.photoRef;
+        const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${api}`
+        this.setState({ url })
         this.props.navigation.setParams({
             gatherListOfBookmarks: this.props.gatherListOfBookmarks
         });
@@ -74,7 +79,7 @@ class About extends Component {
                 <View style={{ flex: 1 }}>
                     <Image
                         style={{ width: 400, height: 300 }}
-                        source={require('../../google.png')}
+                        source={{ uri: this.state.url }}
                     />
                 </View>
                 <View style={{ flex: 1, padding: 15, backgroundColor: 'white', alignItems: 'center', borderWidth: 2, borderRadius: 20, borderColor: 'white' }}>

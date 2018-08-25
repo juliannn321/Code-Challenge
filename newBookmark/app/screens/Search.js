@@ -24,7 +24,12 @@ class Search extends Component {
                 <GooglePlacesInput
                     onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
                         console.log(data, details);
-                        this.props.navigation.navigate('About', { address: details.formatted_address, name: details.name })
+                        console.log(details.photos[0].photo_reference)
+                        this.props.navigation.navigate('About', { 
+                            address: details.formatted_address, 
+                            name: details.name,
+                            photoRef: details.photos[0].photo_reference
+                        })
                     }}
                 />
             </View>
