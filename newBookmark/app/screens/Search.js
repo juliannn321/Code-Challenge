@@ -23,7 +23,7 @@ class Search extends Component {
             <View style={{ flex: 1, alignItems: 'center' }}>
                 <GooglePlacesInput
                     onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
-                        console.log(data, details.formatted_address);
+                        console.log(data, details);
                         this.props.navigation.navigate('About', { address: details.formatted_address, name: details.name })
                     }}
                 />

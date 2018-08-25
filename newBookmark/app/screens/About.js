@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import Button from '../components/Button';
 import { gatherListOfBookmarks } from '../actions/listAction';
 let newBookmark = {
@@ -45,11 +46,6 @@ class About extends Component {
         if (this.state.checkmark) {
             this.setState({
                 checkmark: false,
-                // bookmark: {
-                //     image: '',
-                //     name: '',
-                //     address: ''
-                // }
             }, () => console.log(this.state.bookmark))
             newBookmark = {
                 image: '',
@@ -61,11 +57,6 @@ class About extends Component {
         } else if (!this.state.checkmark) {
             this.setState({
                 checkmark: true,
-                // bookmark: {
-                //     image: '',
-                //     name: this.props.navigation.state.params.name,
-                //     address: this.props.navigation.state.params.address
-                // }
             }, () => console.log(this.state.bookmark))
             newBookmark = {
                 image: '',
